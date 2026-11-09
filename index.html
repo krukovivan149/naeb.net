@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Оплата товара</title>
+<style>
+* { box-sizing: border-box; }
+
+html, body {
+ margin: 0;
+ min-height: 100%;
+ font-family: Arial, Helvetica, sans-serif;
+ background: #f8f8f8;
+ color: #929292;
+ /* font-weight: 500; */
+}
+
+.header {
+ height: 125px;
+ background: #fff;
+ border-bottom: 1px solid #dedede;
+ display: flex;
+ align-items: center;
+ padding-left: max(calc((100% - 660px) / 2), 8%);
+ gap: 20px;
+}
+
+.logo-icon {
+ width: 61px;
+ height: 61px;
+ border-radius: 15px;
+ background: #087cf0;
+ color: #fff;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+ font-size: 35px;
+ font-weight: bold;
+}
+
+.logo-word {
+ color: #050505;
+ font-size: 49px;
+ font-weight: 600;
+ letter-spacing: -2px;
+}
+
+.demo-tag {
+ margin-left: auto;
+ margin-right: 22px;
+ padding: 7px 10px;
+ border: 1px solid #d5a33a;
+ border-radius: 5px;
+ color: #946900;
+ background: #fff8e8;
+ font-size: 11px;
+ font-weight: bold;
+}
+
+main {
+ width: min(660px, 80%);
+ margin: 42px auto 0;
+}
+
+.label {
+ font-size: 27px;
+ line-height: 1.2;
+ margin-bottom: 15px;
+}
+
+.brand-row {
+ height: 40px;
+ display: flex;
+ align-items: center;
+ justify-content: flex-end;
+ gap: 13px;
+ margin-top: -40px;
+ margin-bottom: 10px;
+ color: #c9c9c9;
+ font-weight: bold;
+ font-size: 26px;
+}
+
+.brand-union {
+ font-size: 13px;
+ line-height: 12px;
+ color: #fff;
+ background: linear-gradient(110deg, #e6a7b6 50%, #a8d6d7 50%);
+ padding: 7px 5px;
+ border-radius: 4px;
+ transform: skew(-12deg);
+}
+
+.brand-circles {
+ font-size: 34px;
+ letter-spacing: -17px;
+ padding-right: 16px;
+}
+
+.brand-visa { font-style: italic; }
+
+.field {
+ height: 96px;
+ width: 100%;
+ border: 2px solid #dfe2e4;
+ border-radius: 8px;
+ background: #fff;
+ display: flex;
+ align-items: center;
+ padding: 0 24px;
+ color: #c7c7c7;
+ font-size: 31px;
+}
+
+.columns {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ gap: 24px;
+ margin-top: 34px;
+}
+
+.columns .field {
+ height: 96px;
+}
+
+.button {
+ width: 100%;
+ height: 96px;
+ margin-top: 40px;
+ border: 0;
+ border-radius: 6px;
+ background: #079bd0;
+ color: #fff;
+ font-size: 27px;
+ font-weight: 500;
+ box-shadow: 0 2px 4px #bbb;
+ opacity: .9;
+}
+
+.terms {
+ text-align: center;
+ font-size: 25px;
+ line-height: 1.75;
+ margin: 43px 15px 0;
+}
+
+.terms span { color: #078bd0; }
+
+.secure {
+ text-align: center;
+ margin-top: 35px;
+ font-size: 25px;
+ white-space: nowrap;
+}
+
+.secure-mark {
+ color: #6aa432;
+ font-weight: bold;
+}
+
+.watermark {
+ position: fixed;
+ right: 12px;
+ bottom: 12px;
+ color: #a0a0a0;
+ font-size: 11px;
+ letter-spacing: 1px;
+ opacity: .75;
+}
+
+.label {
+    color:#6aa432;
+}
+
+/* @media (max-width: 600px) { */
+ .header {
+ height: 125px;
+ padding-left: 10%;
+ }
+
+ .logo-icon {
+ width: 61px;
+ height: 61px;
+ }
+
+ .logo-word { font-size: 46px; }
+
+ .demo-tag {
+ margin-right: 10px;
+ font-size: 9px;
+ }
+
+ main {
+ width: 80%;
+ margin-top: 42px;
+ }
+
+.label { 
+    font-size: 22px;
+    color:#484646;
+}
+
+ .field {
+ height: 80px;
+ padding: 0 20px;
+ font-size: 25px;
+ }
+
+ .brand-row {
+ font-size: 21px;
+ gap: 9px;
+ margin-top: -35px;
+ }
+
+ .brand-union { font-size: 10px; }
+
+.brand-circles .brand-circles2 { 
+    font-size: 28px;
+    background-color:#cd0404;
+    border-radius:300px;
+    height: 30px;
+    /* width: 30px; */
+}
+
+.brand {
+    width: 45px;
+    height:35px;
+}
+
+ .columns {
+ gap: 18px;
+ margin-top: 32px;
+ }
+
+ .columns .field { height: 80px; }
+
+ .button {
+ height: 88px;
+ margin-top: 38px;
+ font-size: 21px;
+ }
+
+ .terms {
+ font-size: 20px;
+ margin-top: 42px;
+ }
+
+ .secure {
+ font-size: 18px;
+ white-space: normal;
+ line-height: 1.5;
+ }
+
+.mark {
+    height: 30px;
+    width: 25px;
+    padding-top:8px;
+}
+
+.aaa {
+    color:#53ac00;
+}
+
+.grine {
+    color:#087cf0;
+}
+
+input {
+    width: 100%;
+    height: 86px;
+    padding: 0 24px;
+    font-size: 27px;
+    color: #333;
+    background: white;
+    border: 2px solid #dfe2e4;
+    border-radius: 8px;
+    outline: none;
+}
+
+input::placeholder {
+    color: #c7c7c7;
+}
+
+input:focus {
+    border-color:#079bd0;
+} 
+/* } */
+</style>
+</head>
+<body>
+
+<header class="header">
+ <img src="https://www.mgutu-vf.ru/img/vk_1.png" class="logo-icon">
+ <div class="logo-word">pay</div>
+ <!-- <div class="demo-tag">Р”Р•РњРћ-РњРђРљР•Рў</div> -->
+</header>
+
+<main>
+ <div class="label">Номер карты</div>
+
+ <div class="brand-row" aria-hidden="true">
+ <span class="brand-union">UnionPay<br>漢字</span>
+ <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1920px-Mastercard-logo.svg.png" class="brand">
+ <!-- <div class="znak">
+ <span class="brand-circles">.</span>
+ <span class="brand-circles2">.</span>
+ </div> -->
+ <span class="brand-visa">VISA</span>
+ <span>МИР</span>
+ </div>
+
+<input type="number" placeholder="От 16 до 19 цифр">
+ <!-- <div class="field">От 16 до 19 цифр</div> -->
+
+ <div class="columns">
+ <section>
+ <div class="label">Срок действия</div>
+ <input type="text" placeholder="ММ/ГГ">
+ <!-- <div class="field">ММ/ГГ</div> -->
+ </section>
+ <section>
+ <div class="label">CV код</div>
+ <input type="text" placeholder="***">
+ <!-- <div class="field">***</div> -->
+ </section>
+ </div>
+
+ <button class="button" type="button" disabled>
+ ПОДТВЕРДИТЬ ОПЛАТУ
+ </button>
+
+ <div class="terms">
+ Нажимая на кнопку вы подтверждаете<br class="grine">
+<a class="grine">условия соглашения.</a>
+ </div>
+
+ <div class="secure">
+ <img src="https://instantfunding.ca/wp-content/uploads/2022/01/Payday-Lenders-5.png" class="mark">
+ <a class="aaa">
+ HTTPS / SSL
+ </a>Защищенное соединение
+ </div>
+</main>
+</body>
+</html>
